@@ -26,8 +26,15 @@ const messageEl = document.getElementById('message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-squareEls[0].addEventListener('click', addValue)
-
+squareEls[0].addEventListener('click', handleClick)
+squareEls[1].addEventListener('click', handleClick)
+squareEls[2].addEventListener('click', handleClick)
+squareEls[3].addEventListener('click', handleClick)
+squareEls[4].addEventListener('click', handleClick)
+squareEls[5].addEventListener('click', handleClick)
+squareEls[6].addEventListener('click', handleClick)
+squareEls[7].addEventListener('click', handleClick)
+squareEls[8].addEventListener('click', handleClick)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -52,17 +59,28 @@ const render = () => {
   for (let i = 0; i < board.length; i++) {
     if (board[i] === null) {
       console.log(`null`)
+      squareEls[i].className = 'default'
     } else if (board[i] === 0) {
       console.log(`Zero`)
+      squareEls[i].className = 'red'
     } else if (board[i] === 1) {
       console.log(`One`)
+      squareEls[i].className = 'blue'
     }
   }
 }
 
-function addValue(evt) {
-  console.log(`square zero`)
-  squareEls[0].className = 'red'
+function handleClick(evt) {
+  evt = evt.target
+  if (turn === 1) {
+    evt.className = 'red'
+    turn = 0
+    messageEl.textContent = `It is blue's turn`
+  } else if (turn === 0) {
+    evt.className = 'blue'
+    turn = 1
+    messageEl.textContent = `It is red's turn`
+  }
 }
 
 init()

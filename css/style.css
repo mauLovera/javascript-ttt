@@ -25,6 +25,14 @@ div {
 
 /* Testing */
 
+.default {
+  background-color: white;
+}
+
 .red {
   background-color: red;
+}
+
+.blue {
+  background-color: blue;
 }
