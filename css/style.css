@@ -22,3 +22,9 @@ div {
   text-align: center;
   vertical-align: middle;
 }
+
+/* Testing */
+
+.red {
+  background-color: red;
+}
