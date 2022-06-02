@@ -8,16 +8,17 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-  [0, 1, 2], // top left to top right
-  [0, 4, 8], // top left to bottom right 
-  [0, 3, 6], // top left to bottom left
-  [1, 4, 7], // top middle to bottom middle
-  [2, 1, 0], // top right to top left 
-  [2, 4, 6], // top right to bottom left
-  [2, 5, 8], // top right to bottom right
-  [3, 4, 5], // middle left to middle right
-  [6, 7, 8], // bottom left to bottom right
+  [0, 3, 6], // rows
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 1, 2], // columns 
+  [3, 4, 6],
+  [6, 7, 8],
+  [0, 4, 8], // diagonals
+  [2, 4, 6]
 ]
+
+console.log(winningCombos)
 
 /*---------------------------- Variables (state) ----------------------------*/
 
