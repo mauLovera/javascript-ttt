@@ -1,6 +1,23 @@
+/*-------------------------------- Game Board -------------------------------*/
+
+// 0  |  1  |  2  
+// 3  |  4  |  5
+// 6  |  7  |  8
+
+
 /*-------------------------------- Constants --------------------------------*/
 
-
+const winningCombos = [
+  [0, 1, 2], // top left to top right
+  [0, 4, 8], // top left to bottom right 
+  [0, 3, 6], // top left to bottom left
+  [1, 4, 7], // top middle to bottom middle
+  [2, 1, 0], // top right to top left 
+  [2, 4, 6], // top right to bottom left
+  [2, 5, 8], // top right to bottom right
+  [3, 4, 5], // middle left to middle right
+  [6, 7, 8], // bottom left to bottom right
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -38,24 +55,24 @@ squareEls[8].addEventListener('click', handleClick)
 
 /*-------------------------------- Functions --------------------------------*/
 
-const init = () => {
+function init() {
   board = [
-    null, 
-    null, 
-    null,  
-    null, 
-    null, 
-    null, 
-    null, 
-    null, 
-    null, 
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
   ]
-  turn = 1
+  turn = 0
   player = null
   render()
 }
 
-const render = () => {
+function render() {
   for (let i = 0; i < board.length; i++) {
     if (board[i] === null) {
       console.log(`null`)
@@ -72,14 +89,21 @@ const render = () => {
 
 function handleClick(evt) {
   evt = evt.target
-  if (turn === 1) {
+  if (evt.className === 'default' && turn === 0) {
     evt.className = 'red'
-    turn = 0
     messageEl.textContent = `It is blue's turn`
-  } else if (turn === 0) {
-    evt.className = 'blue'
     turn = 1
+    console.log(evt.id)
+  } else if (evt.className === 'default' && turn === 1) {
+    evt.className = 'blue'
+    turn = 0
     messageEl.textContent = `It is red's turn`
+  } else if (evt.className !== 'red' && turn === 0) {
+    evt.className = 'red'
+    turn = 1
+  } else if (evt.className !== 'blue' && turn === 1) {
+    evt.className = 'blue'
+    turn = 0
   }
 }
 
