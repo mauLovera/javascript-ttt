@@ -4,21 +4,19 @@
 // 3  |  4  |  5
 // 6  |  7  |  8
 
-
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-  [0, 3, 6], // rows
+  [0, 3, 6], // columns
   [1, 4, 7],
   [2, 5, 8],
-  [0, 1, 2], // columns 
-  [3, 4, 6],
+  [0, 1, 2], // rows 
+  [3, 4, 5],
   [6, 7, 8],
   [0, 4, 8], // diagonals
   [2, 4, 6]
 ]
 
-console.log(winningCombos)
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -68,43 +66,75 @@ function init() {
     null,
     null,
   ]
-  turn = 0
+  turn = 1
   player = null
   render()
 }
 
-function render() {
-  for (let i = 0; i < board.length; i++) {
-    if (board[i] === null) {
-      console.log(`null`)
-      squareEls[i].className = 'default'
-    } else if (board[i] === 0) {
-      console.log(`Zero`)
-      squareEls[i].className = 'red'
-    } else if (board[i] === 1) {
-      console.log(`One`)
-      squareEls[i].className = 'blue'
-    }
-  }
+
+// this handles the click functionality of the board and updates the value of the board array
+function handleClick(evt) {
+  // variable will hold the index of the div within the squareEL array which is the same length as the board array so it works
+  const sqIdx = parseInt(evt.target.id.slice(2)) // => 0 / 1 / 2... 
+  if (board[sqIdx] !== null) {
+    return console.log(`TAKEN`)
+  } 
+  // need to assign sqIdx to board 
+  board[sqIdx] = turn
+  turn *= -1 
+  // console.log(board[sqIdx], board)
+  getWinner()
+  render()
 }
 
-function handleClick(evt) {
-  evt = evt.target
-  if (evt.className === 'default' && turn === 0) {
-    evt.className = 'red'
-    messageEl.textContent = `It is blue's turn`
-    turn = 1
-    console.log(evt.id)
-  } else if (evt.className === 'default' && turn === 1) {
-    evt.className = 'blue'
-    turn = 0
-    messageEl.textContent = `It is red's turn`
-  } else if (evt.className !== 'red' && turn === 0) {
-    evt.className = 'red'
-    turn = 1
-  } else if (evt.className !== 'blue' && turn === 1) {
-    evt.className = 'blue'
-    turn = 0
+
+
+function getWinner() {
+    winningCombos.forEach((combo) => {
+      // find the sum of the values within the board array at indices 0, 1, and 2 of the combo
+      let sum = board[combo[0]] + board[combo[1]] + board[combo[2]]
+      // if the absolute value of the sum is 3, there's a winner
+      if (sum === 3) {
+        winner = turn
+        return console.log(`Red has won`)
+      } else if (sum === -3) {
+        winner = turn
+        return console.log(`Blue has won`)
+      } else if (!board.includes(null)) {
+        winner = 'T'
+      }
+        // because you're tracking the turn, you can determine the winner using that variable, which is all you need to return        
+    })
+    return winner
+}
+
+
+
+// this updates the style of the board depending on the values found within the board array in init()
+function render() {
+  board.forEach((element, index) => {
+    if (board[index] === null) {
+      squareEls[index].className = 'default'
+      squareEls[index].textContent = ''
+      // console.log(board[index])
+    } else if (board[index] === 1) {
+      squareEls[index].className = 'red'
+      squareEls[index].textContent = 'O'
+      // console.log(board[index]
+    } else if (board[index] === -1) {
+      squareEls[index].className = 'blue'
+      squareEls[index].textContent = 'X'
+    }
+  })
+  // console.log([board])
+  if (winner === null) {
+    messageEl.textContent = `It's Red's Turn!`
+  } else if (winner === 'T') {
+    messageEl.textContent = `It's a tie!`
+  } else if (winner === 1) {
+    messageEl.textContent = `Blue takes the game!`
+  } else if (winner === -1) {
+    messageEl.textContent = `Red takes the game!`
   }
 }
 
