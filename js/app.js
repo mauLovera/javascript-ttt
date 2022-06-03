@@ -26,7 +26,7 @@ const squareEls = [
   sq8 = document.getElementById('sq8')  
 ]
 
-const messageEl = document.getElementById('message')
+const msgEl = document.getElementById('message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -38,27 +38,35 @@ function init() {
   board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   player = null
+  // O is 1 // X is -1 //
   render()
 }
 
 function handleClick({ target: { id } }) {
+  console.log(`%cTurn: ${turn}`, `color: pink`)
   if (!winner) {
-    const sqIdx = ~~id.slice(2) // => 0 / 1 / 2...
+    const sqIdx = parseInt(id.slice(2)) // => 0 / 1 / 2...
     if (board[sqIdx] !== null) return 
-    board[sqIdx] = turn // board[sqIdx] === 1 or -1 
+    board[sqIdx] = turn // board[sqIdx] = 1 or -1 
     turn *= -1 // 1 = O || -1 = X //
-    getWinner()
+    checkWinner()
     render()
   } 
+  // console.log(`%cAfter turn: ${turn}`, `color: cyan`)
 }
 
-function getWinner() {
+function checkWinner() {
   winningCombos.forEach((combo) => {
     let sum = board[combo[0]] + board[combo[1]] + board[combo[2]]
-    if (sum === 3) winner = turn
-    if (sum === -3) winner = turn
-    if (!board.includes(null)) winner = 'T'      
-  })
+    if (sum === 3) {
+      winner = turn
+    } else if (sum === -3) {
+      winner = turn
+    }      
+  }) 
+  if (!board.includes(null) && winner !== turn) {
+    winner = 'T'
+  }
 }
 
 function render() {
@@ -67,36 +75,25 @@ function render() {
 }
 
 function boardRender() {
-  board.forEach((space, idx) => {
-    space = board[idx]
-    square = squareEls[idx]
-    msg = messageEl
-    if (space === null) {
-      square.className = 'default'
-      square.textContent = ''
-    } else if (space === 1) {
-      square.className = 'red'
-      square.textContent = 'O'
-      msg.textContent = `It's Blue's turn!`
-    } else if (space === -1) {
-      square.className = 'blue'
-      square.textContent = 'X'
-      msg.textContent = `It's Red's turn!`
+  board.forEach((element, idx) => {
+    let sq = squareEls[idx]
+    sq.className = 'default'
+    sq.textContent = ''
+    if (element === 1) {
+      sq.className = 'red'
+      sq.textContent = 'O'
+    } else if (element === -1) {
+      sq.className = 'blue'
+      sq.textContent = 'X'
     }
   })
+  msgEl.textContent = turn === 1 ? `It's Red's turn!` : `It's Blue's Turn!`
 }  
 
 function winnerText() {
-  if (winner === 'T') {
-    return messageEl.textContent = `It's a tie!`
-    } else if (winner === 1) {
-    return messageEl.textContent = `Blue takes the game!`
-    } else if (winner === -1) {
-    return messageEl.textContent = `Red takes the game!`
-    } 
+  if (winner === 1) msgEl.textContent = `Blue takes the game!`
+  if (winner === -1) msgEl.textContent = `Red takes the game!`
+  if (winner === 'T') msgEl.textContent = `It's a tie!`
 }
 
 init()
-
-
-
