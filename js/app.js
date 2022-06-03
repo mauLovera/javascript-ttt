@@ -14,7 +14,7 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = [ // Is there a cleaner way to store this? 
+const squareEls = [  
   sq0 = document.getElementById('sq0'), 
   sq1 = document.getElementById('sq1'), 
   sq2 = document.getElementById('sq2'), 
@@ -52,7 +52,6 @@ function handleClick({ target: { id } }) {
   } 
 }
 
-
 function getWinner() {
   winningCombos.forEach((combo) => {
     let sum = board[combo[0]] + board[combo[1]] + board[combo[2]]
@@ -62,17 +61,9 @@ function getWinner() {
   })
 }
 
-
 function render() {
   boardRender()
   winnerText()
-    // if (winner === 'T') {
-    // return messageEl.textContent = `It's a tie!`
-    // } else if (winner === 1) {
-    // return messageEl.textContent = `Blue takes the game!`
-    // } else if (winner === -1) {
-    // return messageEl.textContent = `Red takes the game!`
-    // } 
 }
 
 function boardRender() {
@@ -95,26 +86,6 @@ function boardRender() {
   })
 }  
 
-function assignContent() {
-  board.forEach((space, idx) => {
-    space = board[idx]
-    square = squareEls[idx]
-    msg = messageEl.textContent
-    if (space === null) {
-      square.className = 'default'
-      square.textContent = ''
-    } else if (space === 1) {
-      square.className = 'red'
-      square.textContent = 'O'
-      msg = `It's Blue's Turn!`
-    } else if (space === -1) {
-      square.className = 'blue'
-      square.textContent = 'X'
-      msg = `It's Red's Turn!`
-    }
-  })
-}
-
 function winnerText() {
   if (winner === 'T') {
     return messageEl.textContent = `It's a tie!`
@@ -124,10 +95,6 @@ function winnerText() {
     return messageEl.textContent = `Red takes the game!`
     } 
 }
-
-
-
-
 
 init()
 
