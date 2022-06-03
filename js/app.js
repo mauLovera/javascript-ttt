@@ -42,15 +42,17 @@ const messageEl = document.getElementById('message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-squareEls[0].addEventListener('click', handleClick)
-squareEls[1].addEventListener('click', handleClick)
-squareEls[2].addEventListener('click', handleClick)
-squareEls[3].addEventListener('click', handleClick)
-squareEls[4].addEventListener('click', handleClick)
-squareEls[5].addEventListener('click', handleClick)
-squareEls[6].addEventListener('click', handleClick)
-squareEls[7].addEventListener('click', handleClick)
-squareEls[8].addEventListener('click', handleClick)
+
+squareEls.forEach((element) => addEventListener(`click`, handleClick))
+// squareEls[0].addEventListener('click', handleClick)
+// squareEls[1].addEventListener('click', handleClick)
+// squareEls[2].addEventListener('click', handleClick)
+// squareEls[3].addEventListener('click', handleClick)
+// squareEls[4].addEventListener('click', handleClick)
+// squareEls[5].addEventListener('click', handleClick)
+// squareEls[6].addEventListener('click', handleClick)
+// squareEls[7].addEventListener('click', handleClick)
+// squareEls[8].addEventListener('click', handleClick)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -71,23 +73,22 @@ function init() {
   render()
 }
 
-
 // this handles the click functionality of the board and updates the value of the board array
 function handleClick(evt) {
-  // variable will hold the index of the div within the squareEL array which is the same length as the board array so it works
-  const sqIdx = parseInt(evt.target.id.slice(2)) // => 0 / 1 / 2... 
-  if (board[sqIdx] !== null) {
-    return console.log(`TAKEN`)
+  if (!winner) {
+      // variable will hold the index of the div within the squareEL array which is the same length as the board array so it works
+    const sqIdx = parseInt(evt.target.id.slice(2)) // => 0 / 1 / 2... 
+    if (board[sqIdx] !== null) {
+      return 
+    } 
+    // need to assign sqIdx to board 
+    board[sqIdx] = turn // board[0] === 1 or -1 
+    turn *= -1 
+    // console.log(board[sqIdx], board)
+    getWinner()
+    render()
   } 
-  // need to assign sqIdx to board 
-  board[sqIdx] = turn
-  turn *= -1 
-  // console.log(board[sqIdx], board)
-  getWinner()
-  render()
 }
-
-
 
 function getWinner() {
     winningCombos.forEach((combo) => {
@@ -108,8 +109,6 @@ function getWinner() {
     return winner
 }
 
-
-
 // this updates the style of the board depending on the values found within the board array in init()
 function render() {
   board.forEach((element, index) => {
@@ -120,22 +119,21 @@ function render() {
     } else if (board[index] === 1) {
       squareEls[index].className = 'red'
       squareEls[index].textContent = 'O'
+      messageEl.textContent = `It's Blue's turn!`
       // console.log(board[index]
     } else if (board[index] === -1) {
       squareEls[index].className = 'blue'
       squareEls[index].textContent = 'X'
+      messageEl.textContent = `It's Red's turn!`
     }
   })
-  // console.log([board])
-  if (winner === null) {
-    messageEl.textContent = `It's Red's Turn!`
-  } else if (winner === 'T') {
-    messageEl.textContent = `It's a tie!`
-  } else if (winner === 1) {
-    messageEl.textContent = `Blue takes the game!`
-  } else if (winner === -1) {
-    messageEl.textContent = `Red takes the game!`
-  }
+    if (winner === 'T') {
+    return messageEl.textContent = `It's a tie!`
+    } else if (winner === 1) {
+    return messageEl.textContent = `Blue takes the game!`
+    } else if (winner === -1) {
+    return messageEl.textContent = `Red takes the game!`
+    } 
 }
 
 init()
