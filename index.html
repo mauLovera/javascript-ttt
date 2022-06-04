@@ -15,10 +15,10 @@
 <body>
 	<header id="header">
 		<div class="divider-left">
-			<h2 id="message"></h2>
+			<h2 id="message-left">O</h2>
 		</div>
 		<div class="divider-right">
-			<h2 id="message2">X's turn!</h2>
+			<h2 id="message-right">X</h2>
 		</div>
 	</header>
 	<main id="board-container">
@@ -35,14 +35,13 @@
 		</section> 
 	</main>
 	<footer id="footer">
-		<h1>Wins List</h1>
-		<ul id="win-list">
-			<li>Red</li>
-			<li>Blue</li>
-			<li>Tie</li>
-			<li>Blue</li>
-		</ul>
-
+		<div class="divider-left">
+			<h2 id="tally-left">||||</h2>
+		</div>
+		<div id="win-message" class="win-message-container">X</div>
+		<div class="divider-right">
+			<h2 id="tally-right">||||</h2>
+		</div>
 	</footer>   
 </body>
 </html>

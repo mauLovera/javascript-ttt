@@ -29,8 +29,9 @@ const squareEls = [
 ]
 
 // the turn/win message cached
-const msgEl = document.getElementById('message')
-const msgEl2 = document.getElementById('message2')
+const oMsg = document.getElementById('message-left')
+const xMsg = document.getElementById('message-right')
+const winMsg = document.getElementById('win-message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -140,14 +141,33 @@ function boardRender() {
       sq.textContent = 'X'
     }
   })
-  msgEl.textContent = turn === 1 ? `O` : `X`
-  msgEl2.textContent = turn === -1 ? `O` : `X`
+  if (turn === 1) {
+    oMsg.classList.remove('deactive')
+    oMsg.classList.add('active')
+    xMsg.classList.add('deactive')
+  } 
+  if (turn === -1) {
+    xMsg.classList.remove('deactive')
+    xMsg.classList.add('active')
+    oMsg.classList.add('deactive')
+  }
+  // oMsg.textContent = turn === 1 ? `O` : `X`
+  // xMsg.textContent = turn === -1 ? `O` : `X`
 }  
 
 function winnerText() {
-  if (winner === 1) msgEl.textContent = `X takes the game!`
-  if (winner === -1) msgEl.textContent = `O takes the game!`
-  if (winner === 'T') msgEl.textContent = `It's a tie!`
+  if (winner === -1) {
+    oMsg.textContent = `O wins!`
+    oMsg.classList.remove(`deactive`)
+    xMsg.classList.add(`deactive`)
+  }
+  if (winner === 1) {
+    xMsg.textContent = `X wins!`
+    xMsg.classList.remove(`deactive`)
+    oMsg.classList.add(`deactive`)
+
+  }
+  if (winner === 'T') oMsg.textContent = `It's a tie!`
 }
 
 init()
