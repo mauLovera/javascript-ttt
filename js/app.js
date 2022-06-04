@@ -157,17 +157,17 @@ function boardRender() {
 
 function winnerText() {
   if (winner === -1) {
-    oMsg.textContent = `O wins!`
+    winMsg.textContent = `O wins!`
     oMsg.classList.remove(`deactive`)
     xMsg.classList.add(`deactive`)
   }
   if (winner === 1) {
-    xMsg.textContent = `X wins!`
+    winMsg.textContent = `X wins!`
     xMsg.classList.remove(`deactive`)
     oMsg.classList.add(`deactive`)
 
   }
-  if (winner === 'T') oMsg.textContent = `It's a tie!`
+  if (winner === 'T') winMsg.textContent = `It's a tie!`
 }
 
 init()

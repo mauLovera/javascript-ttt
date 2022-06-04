@@ -42,11 +42,13 @@ h1, h2 {
   justify-content: space-around;
   align-items: center;
   font-size: 1.5em;
+  height: 20vh;
   /* letter-spacing: 5px; */
 }
 
 .divider-left {
   width: 50%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +58,7 @@ h1, h2 {
 
 .divider-right {
   width: 50%;
+  height: 80%;
   display: flex;
   justify-content: center;
   border-left: 2.5px solid var(--off-white);
@@ -123,19 +126,29 @@ section > div.sq-bottom {
 
 /* Footer */
 #footer {
-  border: 5px solid yellow;
+  /* border: 5px solid white; */
+  /* border-bottom: 1px solid white; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 20vh;
 }
 
 #tally-left {
+  width: 10vw;
+  text-align: center;
+}
 
+#win-message {
+  width: 80vw;
+  font-size: 2em;
+  text-align: center;
 }
 
 #tally-right {
-  
+  width: 10vw;
+  text-align: center;
 }
 /* Testing */
 
