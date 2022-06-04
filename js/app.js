@@ -139,12 +139,12 @@ function boardRender() {
       sq.textContent = 'X'
     }
   })
-  msgEl.textContent = turn === 1 ? `It's Red's turn!` : `It's Blue's Turn!`
+  msgEl.textContent = turn === 1 ? `O's turn!` : `X's Turn!`
 }  
 
 function winnerText() {
-  if (winner === 1) msgEl.textContent = `Blue takes the game!`
-  if (winner === -1) msgEl.textContent = `Red takes the game!`
+  if (winner === 1) msgEl.textContent = `X takes the game!`
+  if (winner === -1) msgEl.textContent = `O takes the game!`
   if (winner === 'T') msgEl.textContent = `It's a tie!`
 }
 
