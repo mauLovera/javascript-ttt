@@ -152,13 +152,17 @@ section > div.sq-bottom {
   transition: 0.6s linear;
 }
 
+footer > div {
+  opacity: 1;
+}
 
 #t-text-left {
   width: 10vw;
   text-align: center;
-  color: var(--aero-blue);
   letter-spacing: 5px;
+  color: var(--aero-blue);
   overflow: hidden;
+  transition: 1s linear;
 }    
 
 #win-message {
@@ -166,16 +170,16 @@ section > div.sq-bottom {
   font-size: 2em;
   text-align: center;
   align-items: center;
-  
 }
 
 
 #t-text-right {
   width: 10vw;
   text-align: center;
-  color: var(--melon);
   letter-spacing: 5px;
+  color: var(--melon);
   overflow: hidden;
+  transition: 1s linear;
 }
 
 .t-divider-right {
@@ -184,10 +188,9 @@ section > div.sq-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--maize-crayola); */
 }
 
-.t-divider-right-box-shadow { 
+.t-divider-right-box-shadow {  
   box-shadow: -5px 0 0 0px var(--off-white);
   transition: 0.6s linear;
 }
@@ -222,6 +225,11 @@ section > div.sq-bottom {
   padding: 10px;
   border: 1px solid var(--off-white);
   border-radius: 5px;
+}
+
+#reset-button:hover {
+  background-color: var(--off-white);
+  color: whitesmoke;
 }
 
 
@@ -283,11 +291,79 @@ section > div.sq-bottom {
 
 .o-win-msg {
   color: var(--aero-blue);
-  transition: .05s linear;
+  transition: .2s ease-in;
 }
 
 .x-win-msg {
   color: var(--melon);
-  transition: .05s linear;
+  transition: .2s ease-in;
 
+}
+
+.l-tally {
+  animation-name: Oappear;
+  animation-duration: .5s;
+}
+
+.r-tally {
+  animation-name: Xappear;
+  animation-duration: .6s;
+}
+
+/* ----------------------Media Queries-----------------------*/
+
+@media only screen and (max-width: 768px) {
+  #board-container {
+    background-color: var(--persian-green);
+    /* border: 5px solid white; */
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Board */
+  section.board {
+    display: grid;
+    grid-template-rows: repeat(3, 25vmin);
+    grid-template-columns: repeat(3, 25vmin);
+    grid-gap: 0vmin;
+  }
+  
+  /* Board Spaces */ 
+  section > div {
+    font-size: 17.5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}
+
+@media only screen and (max-width: 460p) {
+  #board-container {
+    background-color: var(--persian-green);
+    /* border: 5px solid white; */
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Board */
+  section.board {
+    display: grid;
+    grid-template-rows: repeat(3, 25vmin);
+    grid-template-columns: repeat(3, 25vmin);
+    grid-gap: 0vmin;
+  }
+  
+  /* Board Spaces */ 
+  section > div {
+    font-size: 17.5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
 }

@@ -160,10 +160,12 @@ function boardRender() {
 function winnerText() {
   if (winner === -1) {
     oWins()
+    tLeft.classList.add(`l-tally`)
     tLeft.append('|')
   }
   if (winner === 1) {
     xWins()
+    tRight.classList.add(`r-tally`)
     tRight.append('|')
   }
   if (winner === 'T') {
@@ -181,6 +183,8 @@ function reset() {
   resetBtn.classList.remove(`visible`)
   resetBtn.classList.add(`invisible`)
   winMsg.classList.remove(`o-win-msg`, `x-win-msg`)
+  tLeft.classList.remove(`l-tally`)
+  tRight.classList.remove(`r-tally`)
   winner = null 
   winMsg.textContent = ''
   init()
