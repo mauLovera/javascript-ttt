@@ -17,7 +17,8 @@ html {
   --dark-fuchsia: rgb(56, 9, 42);
   --outrageous-orange: #f96e46ff;
   --maize-crayola: #f9c846ff;
-  --off-white: #d7fdec2e; 
+  --off-white: #d7fdec2e;
+  --off-white-text: #d7fdec65;
   --melon: #fcbfb7ff;
 }
 
@@ -155,7 +156,8 @@ section > div.sq-bottom {
 #t-text-left {
   width: 10vw;
   text-align: center;
-  
+  color: var(--aero-blue);
+  letter-spacing: 5px;
 }    
 
 #win-message {
@@ -169,6 +171,8 @@ section > div.sq-bottom {
 #t-text-right {
   width: 10vw;
   text-align: center;
+  color: var(--melon);
+  letter-spacing: 5px;
 }
 
 .t-divider-right {
@@ -184,6 +188,40 @@ section > div.sq-bottom {
   box-shadow: -5px 0 0 0px var(--off-white);
   transition: 0.6s linear;
 }
+
+#reset-div {
+  display: flex;
+  justify-content:space-around;
+  align-items: start;
+  width: 3em;
+}
+
+.invisible {
+  opacity: 0;
+  cursor: none;
+}
+
+.visible {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#reset-button {
+  background-color: var(--persian-green);
+  font-family: inherit;
+  color: var(--off-white-text);
+  font-size: .5em;
+  text-indent: 0px;
+  text-shadow: none;
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0em;
+  padding: 10px;
+  border: 1px solid var(--off-white);
+  border-radius: 5px;
+}
+
 
 /* ----------------------JS Classes & Animations-----------------------*/
 

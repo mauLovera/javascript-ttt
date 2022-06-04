@@ -34,6 +34,8 @@ const xMsg = document.getElementById('message-right')
 const winMsg = document.getElementById('win-message')
 const tLeft = document.getElementById('t-text-left')
 const tRight = document.getElementById('t-text-right')
+const resetBtn = document.getElementById('reset-button')
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -164,6 +166,9 @@ function winnerText() {
     winMsg.textContent = `O wins`
     oMsg.classList.remove(`deactive`)
     xMsg.classList.add(`deactive`)
+    resetBtn.classList.remove(`invisible`)
+    resetBtn.classList.add(`visible`)
+    console.log(resetBtn)
   }
   if (winner === 1) {
     winMsg.style.color = '#fcbfb7ff'
