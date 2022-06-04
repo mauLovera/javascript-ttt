@@ -157,12 +157,14 @@ function boardRender() {
 
 function winnerText() {
   if (winner === -1) {
-    winMsg.textContent = `O wins!`
+    winMsg.textContent = `O wins`
+    winMsg.classList.add('o-win-msg')
     oMsg.classList.remove(`deactive`)
     xMsg.classList.add(`deactive`)
   }
   if (winner === 1) {
-    winMsg.textContent = `X wins!`
+    winMsg.textContent = `X wins`
+    winMsg.classList.add('x-win-msg')
     xMsg.classList.remove(`deactive`)
     oMsg.classList.add(`deactive`)
 
