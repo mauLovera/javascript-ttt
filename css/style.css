@@ -158,6 +158,7 @@ section > div.sq-bottom {
   text-align: center;
   color: var(--aero-blue);
   letter-spacing: 5px;
+  overflow: hidden;
 }    
 
 #win-message {
@@ -165,6 +166,7 @@ section > div.sq-bottom {
   font-size: 2em;
   text-align: center;
   align-items: center;
+  
 }
 
 
@@ -173,6 +175,7 @@ section > div.sq-bottom {
   text-align: center;
   color: var(--melon);
   letter-spacing: 5px;
+  overflow: hidden;
 }
 
 .t-divider-right {
@@ -198,7 +201,6 @@ section > div.sq-bottom {
 
 .invisible {
   opacity: 0;
-  cursor: none;
 }
 
 .visible {

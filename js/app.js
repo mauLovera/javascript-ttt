@@ -42,6 +42,9 @@ const resetBtn = document.getElementById('reset-button')
 // on click of a square the handleClick function will be executed
 squareEls.forEach((square) => square.addEventListener(`click`, handleClick))
 
+// reset state but track wins 
+resetBtn.addEventListener(`click`, reset)
+
 /*-------------------------------- Functions --------------------------------*/
 
 // initializes the board setting the turn to 1 and the spaces to null
@@ -115,15 +118,12 @@ function checkWinner() {
     let sum = board[combo[0]] + board[combo[1]] + board[combo[2]]
     if (sum === 3) {
       winner = turn
-      // console.log(sum)
     } else if (sum === -3) {
       winner = turn
-      // console.log(sum)
     }      
   }) 
   if (!board.includes(null) && winner !== turn) {
     winner = 'T'
-    // console.log(winner !== turn)
   }
 }
 
@@ -155,30 +155,55 @@ function boardRender() {
     xMsg.classList.add('x-active')
     oMsg.classList.add('deactive')
   }
-  // oMsg.textContent = turn === 1 ? `O` : `X`
-  // xMsg.textContent = turn === -1 ? `O` : `X`
 }  
 
 function winnerText() {
   if (winner === -1) {
-    winMsg.style.color = '#8BF9C7'
-    winMsg.classList.add('o-win-msg')
-    winMsg.textContent = `O wins`
-    oMsg.classList.remove(`deactive`)
-    xMsg.classList.add(`deactive`)
-    resetBtn.classList.remove(`invisible`)
-    resetBtn.classList.add(`visible`)
-    console.log(resetBtn)
+    oWins()
+    tLeft.append('|')
   }
   if (winner === 1) {
-    winMsg.style.color = '#fcbfb7ff'
-    winMsg.classList.add('x-win-msg')
-    winMsg.textContent = `X wins`
-    xMsg.classList.remove(`deactive`)
-    oMsg.classList.add(`deactive`)
-
+    xWins()
+    tRight.append('|')
   }
-  if (winner === 'T') winMsg.textContent = `It's a tie!`
+  if (winner === 'T') {
+    winMsg.textContent = `It's a tie!`
+    resetBtn.classList.remove(`invisible`)
+    resetBtn.classList.add(`visible`)
+  }
+}
+
+function reset() {
+  board.forEach((element, idx) => {
+    let sq = squareEls[idx]
+    sq.classList.remove(`oh`, `o-ease-in`, `ex`, `x-ease-in`, `default`)
+  })
+  resetBtn.classList.remove(`visible`)
+  resetBtn.classList.add(`invisible`)
+  winMsg.classList.remove(`o-win-msg`, `x-win-msg`)
+  winner = null 
+  winMsg.textContent = ''
+  init()
+}
+
+function oWins() {
+  winMsg.style.color = '#8BF9C7'
+  winMsg.classList.add('o-win-msg')
+  winMsg.textContent = `O wins`
+  oMsg.classList.remove(`deactive`)
+  xMsg.classList.add(`deactive`)
+  resetBtn.classList.remove(`invisible`)
+  resetBtn.classList.add(`visible`)
+}
+
+function xWins() {
+  winMsg.style.color = '#fcbfb7ff'
+  winMsg.classList.add('x-win-msg')
+  winMsg.textContent = `X wins`
+  xMsg.classList.remove(`deactive`)
+  oMsg.classList.add(`deactive`)
+  resetBtn.classList.remove(`invisible`)
+  resetBtn.classList.add(`visible`)
 }
 
 init()
