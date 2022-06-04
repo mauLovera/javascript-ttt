@@ -10,6 +10,7 @@ html {
 
 :root {
   --persian-green: #1b998bff;
+  --persian-green-hover: rgb(30, 173, 156);
   --indigo-dye: #033f63ff;
   --aero-blue: #8BF9C7;
   --rose-pink: #ff7edbff;
@@ -20,6 +21,7 @@ html {
   --off-white: #d7fdec2e;
   --off-white-text: #d7fdec65;
   --melon: #fcbfb7ff;
+  --earth-yellow: rgb(233, 216, 160);
 }
 
 body {
@@ -109,6 +111,12 @@ section > div {
   align-items: center;
   justify-content: center;
 }
+
+section > div:hover {
+  background-color: var(--persian-green-hover);
+  transition: .5s linear;
+}
+
 
 /* Board Lines */
 section > div.sq-top {
@@ -310,6 +318,10 @@ footer > div {
   animation-duration: .6s;
 }
 
+.tie {
+  color: var(--earth-yellow);
+}
+
 /* ----------------------Media Queries-----------------------*/
 
 @media only screen and (max-width: 768px) {
@@ -340,7 +352,7 @@ footer > div {
   
 }
 
-@media only screen and (max-width: 460p) {
+@media only screen and (max-width: 460px) {
   #board-container {
     background-color: var(--persian-green);
     /* border: 5px solid white; */

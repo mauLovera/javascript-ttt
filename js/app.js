@@ -169,7 +169,8 @@ function winnerText() {
     tRight.append('|')
   }
   if (winner === 'T') {
-    winMsg.textContent = `It's a tie!`
+    winMsg.textContent = `Draw`
+    winMsg.classList.add(`tie`)
     resetBtn.classList.remove(`invisible`)
     resetBtn.classList.add(`visible`)
   }
@@ -182,7 +183,7 @@ function reset() {
   })
   resetBtn.classList.remove(`visible`)
   resetBtn.classList.add(`invisible`)
-  winMsg.classList.remove(`o-win-msg`, `x-win-msg`)
+  winMsg.classList.remove(`o-win-msg`, `x-win-msg`, `tie`)
   tLeft.classList.remove(`l-tally`)
   tRight.classList.remove(`r-tally`)
   winner = null 
