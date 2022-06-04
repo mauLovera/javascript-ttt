@@ -9,18 +9,32 @@
 	<title>Tic Tac Toe</title>
 </head>
 <body>
-	<h1>Tic-Tac-Toe</h1>
-	<h2 id="message">Message</h2>
-	<section class="board">
-		<div id="sq0" data-status="available"></div>
-		<div id="sq1" data-status="available"></div>
-		<div id="sq2" data-status="available"></div>
-		<div id="sq3" data-status="available"></div>
-		<div id="sq4" data-status="available"></div>
-		<div id="sq5" data-status="available"></div>
-		<div id="sq6" data-status="available"></div>
-		<div id="sq7" data-status="available"></div>
-		<div id="sq8" data-status="available"></div>
-	</section>    
+	<header id="header">
+		<h1>Tic-Tac-Toe</h1>
+		<h2 id="message"></h2>
+	</header>
+	<main id="board-container">
+		<section class="board">
+			<div id="sq0" class="square"></div>
+			<div id="sq1" class="square"></div>
+			<div id="sq2" class="square"></div>
+			<div id="sq3" class="square"></div>
+			<div id="sq4" class="square"></div>
+			<div id="sq5" class="square"></div>
+			<div id="sq6" class="square"></div>
+			<div id="sq7" class="square"></div>
+			<div id="sq8" class="square"></div>
+		</section> 
+	</main>
+	<footer id="footer">
+		<h1>Wins List</h1>
+		<ul id="win-list">
+			<li>Red</li>
+			<li>Blue</li>
+			<li>Tie</li>
+			<li>Blue</li>
+		</ul>
+
+	</footer>   
 </body>
 </html>
