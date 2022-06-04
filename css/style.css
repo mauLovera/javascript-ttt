@@ -58,12 +58,29 @@ section.board {
 
 /* Board Spaces */ 
 section > div {
-  border: 3px solid black;
   font-size: 8vmin;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+section > div.sq-top {
+  border-right: 5px solid black;
+}
+
+section > div.sq-middle {
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+}
+
+section > div.sq-middle-2 {
+  border-right: 5px solid black;
+}
+
+section > div.sq-bottom {
+  border-right: 5px solid black;
+}
+
 
 /* Footer */
 #footer {
@@ -88,15 +105,12 @@ section > div {
 }
 
 
-
-
-
-
 /* Testing */
 
 .default {
   background-color: var(--persian-green);
 }
+
 
 .red {
   background-color: red;

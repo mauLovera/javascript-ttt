@@ -129,13 +129,13 @@ function render() {
 function boardRender() {
   board.forEach((element, idx) => {
     let sq = squareEls[idx]
-    sq.className = 'default'
+    sq.classList.add('default')
     sq.textContent = ''
     if (element === 1) {
-      sq.className = 'red'
+      sq.classList.add('red')
       sq.textContent = 'O'
     } else if (element === -1) {
-      sq.className = 'blue'
+      sq.classList.add('blue')
       sq.textContent = 'X'
     }
   })
