@@ -41,14 +41,14 @@ h1, h2 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.8em;
   height: 20vh;
   /* letter-spacing: 5px; */
 }
 
 .divider-left {
   width: 50%;
-  height: 80%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,9 +58,10 @@ h1, h2 {
 
 .divider-right {
   width: 50%;
-  height: 80%;
+  height: 40%;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-left: 2.5px solid var(--off-white);
   /* background-color: var(--maize-crayola); */
 }
@@ -82,7 +83,7 @@ h1, h2 {
 /* Board Div */
 #board-container {
   background-color: var(--persian-green);
-  border: 5px solid white;
+  /* border: 5px solid white; */
   height: 400px;
   display: flex;
   justify-content: center;
@@ -135,21 +136,57 @@ section > div.sq-bottom {
   height: 20vh;
 }
 
-#tally-left {
+
+
+.t-divider-left {
+  width: 50%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-right: 2.5px solid var(--off-white); */
+  /* background-color: var(--maize-crayola); */
+}
+
+.t-divider-left-box-shadow { 
+  box-shadow: 5px 0 0 0px var(--off-white);  
+  transition: 0.6s linear;
+}
+
+
+#t-text-left {
   width: 10vw;
   text-align: center;
-}
+  
+}    
 
 #win-message {
   width: 80vw;
   font-size: 2em;
   text-align: center;
+  align-items: center;
 }
 
-#tally-right {
+
+#t-text-right {
   width: 10vw;
   text-align: center;
 }
+
+.t-divider-right {
+  width: 50%;
+  height: 40%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--maize-crayola); */
+}
+
+.t-divider-right-box-shadow { 
+  box-shadow: -5px 0 0 0px var(--off-white);
+  transition: 0.6s linear;
+}
+
 /* Testing */
 
 .default {

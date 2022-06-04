@@ -65,7 +65,7 @@ function init() {
  *         O  |  X  |  X  |
  *         O  |  n  |  n  |
  *         
- *         1  |  1   |  -1  |
+ *         1  |  1   |  -1  | 
  *         1  |  -1  |  -1  |
  *         1  |  n   |  n   |
  *    7. the forEach loop will iterate over every possible winning
