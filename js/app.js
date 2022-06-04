@@ -32,6 +32,8 @@ const squareEls = [
 const oMsg = document.getElementById('message-left')
 const xMsg = document.getElementById('message-right')
 const winMsg = document.getElementById('win-message')
+const tLeft = document.getElementById('t-text-left')
+const tRight = document.getElementById('t-text-right')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -157,14 +159,16 @@ function boardRender() {
 
 function winnerText() {
   if (winner === -1) {
-    winMsg.textContent = `O wins`
+    winMsg.style.color = '#8BF9C7'
     winMsg.classList.add('o-win-msg')
+    winMsg.textContent = `O wins`
     oMsg.classList.remove(`deactive`)
     xMsg.classList.add(`deactive`)
   }
   if (winner === 1) {
-    winMsg.textContent = `X wins`
+    winMsg.style.color = '#fcbfb7ff'
     winMsg.classList.add('x-win-msg')
+    winMsg.textContent = `X wins`
     xMsg.classList.remove(`deactive`)
     oMsg.classList.add(`deactive`)
 

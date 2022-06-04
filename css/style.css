@@ -17,7 +17,7 @@ html {
   --dark-fuchsia: rgb(56, 9, 42);
   --outrageous-orange: #f96e46ff;
   --maize-crayola: #f9c846ff;
-  --off-white: rgba(215, 253, 236, 0.18); 
+  --off-white: #d7fdec2e; 
   --melon: #fcbfb7ff;
 }
 
@@ -25,7 +25,7 @@ body {
   background-color: var(--persian-green);
 	font-family: 'Quicksand',system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  color: whitesmoke;
+  color: var(--persian-green);
 	margin: 0;
   height: 100vh;
   display: flex;
@@ -242,9 +242,12 @@ section > div.sq-bottom {
 }
 
 .o-win-msg {
-  color: var(--aero-blue)
+  color: var(--aero-blue);
+  transition: .05s linear;
 }
 
 .x-win-msg {
-  color: var(--melon)
+  color: var(--melon);
+  transition: .05s linear;
+
 }
