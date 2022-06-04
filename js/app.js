@@ -134,21 +134,21 @@ function boardRender() {
     sq.classList.add('default')
     sq.textContent = ''
     if (element === 1) {
-      sq.classList.add('red')
+      sq.classList.add('oh', 'o-ease-in')
       sq.textContent = 'O'
     } else if (element === -1) {
-      sq.classList.add('blue')
+      sq.classList.add('ex', 'x-ease-in')
       sq.textContent = 'X'
     }
   })
   if (turn === 1) {
     oMsg.classList.remove('deactive')
-    oMsg.classList.add('active')
+    oMsg.classList.add('o-active')
     xMsg.classList.add('deactive')
   } 
   if (turn === -1) {
     xMsg.classList.remove('deactive')
-    xMsg.classList.add('active')
+    xMsg.classList.add('x-active')
     oMsg.classList.add('deactive')
   }
   // oMsg.textContent = turn === 1 ? `O` : `X`
