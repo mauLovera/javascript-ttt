@@ -30,6 +30,7 @@ const squareEls = [
 
 // the turn/win message cached
 const msgEl = document.getElementById('message')
+const msgEl2 = document.getElementById('message2')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -139,7 +140,8 @@ function boardRender() {
       sq.textContent = 'X'
     }
   })
-  msgEl.textContent = turn === 1 ? `O's turn!` : `X's Turn!`
+  msgEl.textContent = turn === 1 ? `O` : `X`
+  msgEl2.textContent = turn === -1 ? `O` : `X`
 }  
 
 function winnerText() {

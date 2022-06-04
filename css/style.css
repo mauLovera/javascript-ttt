@@ -37,18 +37,37 @@ h1, h2 {
 
 /* Header Text*/
 #header {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 
   font-size: 1.5em;
+  letter-spacing: 5px;
+}
+
+.divider-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2.5px solid var(--off-white);
+  /* background-color: var(--maize-crayola); */
+}
+
+.divider-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2.5px solid var(--off-white);
+  /* background-color: var(--maize-crayola); */
 }
 
 #message {
-  letter-spacing: 5px;
+  
 }
 
 /* Board Div */
@@ -124,7 +143,6 @@ section > div.sq-bottom {
 .default {
   background-color: var(--persian-green);
 }
-
 
 .red {
   background-color: var();
