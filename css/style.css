@@ -10,33 +10,35 @@ html {
 
 :root {
   --persian-green: #1b998bff;
-  --persian-green-hover: rgb(30, 173, 156);
+  --persian-green-hover: #1ead9c;
   --indigo-dye: #033f63ff;
-  --aero-blue: #8BF9C7;
+  --aero-blue: #8bf9c7;
   --rose-pink: #ff7edbff;
   --fashion-fuchsia: #e000a1ff;
-  --dark-fuchsia: rgb(56, 9, 42);
+  --dark-fuchsia: #38092a;
   --outrageous-orange: #f96e46ff;
   --maize-crayola: #f9c846ff;
   --off-white: #d7fdec2e;
   --off-white-text: #d7fdec65;
   --melon: #fcbfb7ff;
-  --earth-yellow: rgb(233, 216, 160);
+  --earth-yellow: #e9d8a0;
 }
 
 body {
   background-color: var(--persian-green);
-	font-family: 'Quicksand',system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
+    sans-serif;
   color: var(--persian-green);
-	margin: 0;
+  margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 400;
 }
 
@@ -48,7 +50,7 @@ h1, h2 {
   align-items: center;
   font-size: 2.5em;
   height: 20vh;
-  color: var(--off-white)
+  color: var(--off-white);
 }
 
 .divider-left {
@@ -99,7 +101,7 @@ section.board {
   grid-gap: 0vmin;
 }
 
-/* Board Spaces */ 
+/* Board Spaces */
 section > div {
   font-size: 8.5vmin;
   display: flex;
@@ -109,9 +111,8 @@ section > div {
 
 section > div:hover {
   background-color: var(--persian-green-hover);
-  transition: .5s linear;
+  transition: 0.5s linear;
 }
-
 
 /* Board Lines */
 section > div.sq-top {
@@ -131,7 +132,6 @@ section > div.sq-bottom {
   border-right: 5px solid var(--off-white);
 }
 
-
 /* ----------------------Footer-----------------------*/
 
 #footer {
@@ -150,8 +150,8 @@ section > div.sq-bottom {
   align-items: center;
 }
 
-.t-divider-left-box-shadow { 
-  box-shadow: 5px 0 0 0px var(--off-white);  
+.t-divider-left-box-shadow {
+  box-shadow: 5px 0 0 0px var(--off-white);
   transition: 0.6s linear;
 }
 
@@ -166,7 +166,7 @@ footer > div {
   color: var(--aero-blue);
   overflow: hidden;
   transition: 1s linear;
-}    
+}
 
 #win-message {
   width: 80vw;
@@ -174,7 +174,6 @@ footer > div {
   text-align: center;
   align-items: center;
 }
-
 
 #t-text-right {
   width: 10vw;
@@ -187,20 +186,20 @@ footer > div {
 
 .t-divider-right {
   width: 50%;
-  height: 40%; 
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.t-divider-right-box-shadow {  
+.t-divider-right-box-shadow {
   box-shadow: -5px 0 0 0px var(--off-white);
   transition: 0.6s linear;
 }
 
 #reset-div {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: start;
   width: 3em;
 }
@@ -218,7 +217,7 @@ footer > div {
   background-color: var(--persian-green);
   font-family: inherit;
   color: var(--off-white-text);
-  font-size: .5em;
+  font-size: 0.5em;
   text-indent: 0px;
   text-shadow: none;
   display: block;
@@ -234,7 +233,6 @@ footer > div {
   background-color: var(--off-white);
   color: whitesmoke;
 }
-
 
 /* ----------------------JS Classes & Animations-----------------------*/
 
@@ -256,61 +254,67 @@ footer > div {
 
 .o-ease-in {
   animation-name: Oappear;
-  animation-duration: .6s;
+  animation-duration: 0.6s;
 }
 
 .x-ease-in {
   animation-name: Xappear;
-  animation-duration: .6s;
+  animation-duration: 0.6s;
 }
 
 @keyframes Oappear {
-  0% {color: var(--persian-green);}
-  100% {color: var(--aero-blue);}
+  0% {
+    color: var(--persian-green);
+  }
+  100% {
+    color: var(--aero-blue);
+  }
 }
 
-
 @keyframes Xappear {
-  0% {color: var(--persian-green);}
-  100% {color: var(--melon);}
+  0% {
+    color: var(--persian-green);
+  }
+  100% {
+    color: var(--melon);
+  }
 }
 
 .o-active {
   opacity: 1;
   color: var(--aero-blue);
-  transition: opacity 0.6s linear; 
+  transition: opacity 0.6s linear;
 }
 
 .x-active {
   opacity: 1;
   color: var(--melon);
-  transition: opacity 0.6s linear; 
+  transition: opacity 0.6s linear;
 }
 
 .deactive {
-  opacity: .5;
+  opacity: 0.5;
   transition: opacity 0.6s linear;
 }
 
 .o-win-msg {
   color: var(--aero-blue);
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .x-win-msg {
   color: var(--melon);
-  transition: .2s ease-in;
-
+  transition: 0.2s ease-in;
 }
 
 .l-tally {
   animation-name: Oappear;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 .r-tally {
   animation-name: Xappear;
-  animation-duration: .6s;
+  animation-duration: 0.6s;
 }
 
 .tie {
@@ -327,7 +331,7 @@ footer > div {
     justify-content: center;
     align-items: center;
   }
-  
+
   /* Board */
   section.board {
     display: grid;
@@ -335,15 +339,14 @@ footer > div {
     grid-template-columns: repeat(3, 25vmin);
     grid-gap: 0vmin;
   }
-  
-  /* Board Spaces */ 
+
+  /* Board Spaces */
   section > div {
     font-size: 17.5vmin;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
 }
 
 @media only screen and (max-width: 460px) {
@@ -354,7 +357,7 @@ footer > div {
     justify-content: center;
     align-items: center;
   }
-  
+
   /* Board */
   section.board {
     display: grid;
@@ -362,13 +365,12 @@ footer > div {
     grid-template-columns: repeat(3, 25vmin);
     grid-gap: 0vmin;
   }
-  
-  /* Board Spaces */ 
+
+  /* Board Spaces */
   section > div {
     font-size: 17.5vmin;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
 }
